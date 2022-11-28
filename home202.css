@@ -1,0 +1,228 @@
+body {
+    background: rgb(179, 154, 26);
+    margin: 0;
+    font-size: 1.5em;
+    height: 100vh;
+
+    display: grid;
+    grid-gap: 5px;
+    
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+}
+
+header {
+    background: rgb(77, 52, 6);
+    padding: 10px;
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "brond brond"
+        "nav tools";
+}
+
+header .brond {
+    background: rgb(154, 131, 19);
+    grid-area: brand;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(154, 131, 19);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    grid-area: nav;
+}
+
+header .tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(154, 131, 19);
+    grid-area: tools;
+}
+
+.hero {
+    background: rgb(195, 117, 2);
+    padding: 10px;
+    grid-area: hero;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "action";
+}
+
+.hero .action {
+    background: rgb(255, 121, 68);
+    grid-area: action;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero .feature {
+    background: rgb(255, 121, 68);
+    grid-area: feature;
+}
+
+main {
+    background: rgb(103, 5, 20);
+    padding: 10px;
+    grid-area: body;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .afeature {
+    background: rgb(179, 114, 124);
+    grid-area: feature;
+}
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+main .listing {
+    background: rgb(179, 114, 124);
+    grid-area: listing;
+}
+
+.sidebar .bfeature {
+    background: rgb(255, 136, 251);
+    height: 100%;
+}
+
+.sidebar {
+    background: rgb(104, 222, 214);
+    padding: 10px;
+    grid-area: sidebar;
+
+    display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: LightSalmon;
+    padding: 10px;
+    grid-area: footer;
+}
+
+.desktop-ad {
+    grid-area: ad;
+    display: none;
+}
+
+.hero .feature {
+    display: none;
+}
+
+/* Other */
+.mobile-ad img {
+    vertical-align: top;
+    width: 100%;
+}
+
+.desktop-ad img {
+    vertical-align: top;
+    width: 350px;
+}
+
+.mobile-ad:hover {
+    opacity: 0.5;
+}
+
+.desktop-ad:hover {
+    opacity: 0.5;
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+    .hero {
+        grid-template-areas:
+            "feature"
+            "action";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+
+    .sidebar {
+        display: grid;
+    }
+
+    .mobile-ad img {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer"
+    }
+
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "feature action"
+    }
+
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        display: block;
+    }
+}
